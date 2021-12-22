@@ -11,11 +11,9 @@ The following diagram shows a high level picture of how the WebClient is integra
 
 ## WebClient API
 
-The WebClient API exposes a public JavaScript API, which is available at runtime in your web application as soon as the WebClient is loaded.
+The WebClient API exposes a public JavaScript API, which is available at runtime in your web application as soon as the WebClient is loaded. You can use it to interact with the WebClient programatically from within your web application business logic.
 
-This API is available at the JavaScript object path: `window.sap.cai.webclient`
-
-The API has the following methods:
+The API is available at the JavaScript object path: `window.sap.cai.webclient` and has the following methods:
 
 ### open()
 
