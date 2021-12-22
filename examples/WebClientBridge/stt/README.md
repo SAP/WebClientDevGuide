@@ -3,6 +3,6 @@ The different examples are:
 
 |File|STT Service|
 |-|-|
-|sttIBM.js|IBM Watson\
+|sttIBM.js|IBM Watson|
 |sttSpeechAPI.js|SpeechRegognition API included in some browsers|
 |sttSpeaker.js|Fraunhofer SPEAKER service|

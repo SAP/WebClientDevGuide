@@ -196,7 +196,8 @@ Example implementation:
 
 ```
 sttStartListening: async (params) => {
- const [metadata: { language, audioMetadata } ] = params
+ const [metadata] = params
+ const { language, audioMetadata } = metadata
  
  // initialize your STT service session, e.g. creating a WebSocket client and registering callbacks
 

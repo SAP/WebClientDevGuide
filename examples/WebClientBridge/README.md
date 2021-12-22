@@ -1,0 +1,1 @@
+This folder contains various example implementations and templates for the WebClient Bridge API.
