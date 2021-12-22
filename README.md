@@ -54,7 +54,7 @@ Sends a final or interim Speech-To-Text transcription result to the WebClient an
 
 ## WebClient Bridge API
 
-The WebClinet Bridge API offers a way to extend or customize the functionality of the WebClient by implementing a defined interface whose methods are called by the WebClient at runtime.
+The WebClient Bridge API offers a way to extend or customize the functionality of the WebClient by implementing a defined interface whose methods are called by the WebClient at runtime.
 
 The object has to be registered at object path `window.sapcai.webclientBridge`.
 
