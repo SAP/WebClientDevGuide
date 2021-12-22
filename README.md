@@ -316,7 +316,7 @@ window.sapcai.webclientBridge = {
 
 In case your web app either
 
-- cannot define the full bridge implementation when the WebClient is loaded
+- cannot define the full bridge implementation before the WebClient is loaded
 - or needs to switch the implementation dynamically based on the state of your web app
 
 we recommend the following implementation pattern.
