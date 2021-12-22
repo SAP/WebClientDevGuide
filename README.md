@@ -341,7 +341,7 @@ window.sapcai.webclientBridge = {
 }
 ```
 
-By fixing the `webclientBridge` object to this static implementation your web app can always define it before the WebClient is loaded (which is required), but you stay flexible in changing the implementation. 
+By fixing the `webclientBridge` object to this static implementation, your web app can always define it before the WebClient is loaded (which is required), but you stay flexible in changing the implementation. 
 
 2. Later, in the initialization code of your pages or components which actually provide a WebClient Bridge implementation, just set the `window.sapcai.webclientBridgeImpl` object. This way you can dynamically switch the implementation depending on which page or component the user navigates to.
 
