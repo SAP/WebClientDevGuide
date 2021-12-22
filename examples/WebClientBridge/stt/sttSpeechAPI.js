@@ -48,7 +48,7 @@ class STTSpeechAPI {
 }
 
 let stt = null
-window.sapcai.webclientBridgeImpl = {
+window.sapcai.webclientBridge = {
   sttGetConfig: async () => {
     return {
       useMediaRecorder: false,

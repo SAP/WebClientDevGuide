@@ -64,7 +64,7 @@ class PCM16AudioRecorder {
 
 let wsclient = null
 let audioRecorder = null
-window.sapcai.webclientBridgeImpl = {
+window.sapcai.webclientBridge = {
 
   sttGetConfig: async () => {
     return {
