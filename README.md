@@ -17,11 +17,11 @@ The API is available at the JavaScript object path: `window.sap.cai.webclient` a
 
 ### open()
 
-Opens the Web Client
+Opens the Web Client.
 
 ### close()
 
-Closes The Web Client
+Closes The Web Client.
 
 ### toggle()
 
@@ -29,7 +29,7 @@ Toggles show/hide of the Web Client. This can be attached to an own button in th
 
 ### setTheme(themeName)
 
-Sets the theme of the Web Client
+Sets the theme of the Web Client.
 
 
 | Parameter | Description |
@@ -38,7 +38,7 @@ Sets the theme of the Web Client
 
 ### sendMessage(message)
 
-Sends the given message to the underlying bot
+Sends the given message to the underlying bot.
 
 | Parameter | Description |
 | ---- | ----------- |
@@ -46,7 +46,7 @@ Sends the given message to the underlying bot
 
 ### onSTTResult(result)
 
-Sends a final or interim Speech-To-Text transcription result to the Web Client and updates the UI.If the 'final' flag is set to true, the UI will exit the listening mode and will automatically send the text as a message to the bot. If the flag is false the UI will only update the text but will remaining in listening mode.
+Sends a final or interim Speech-To-Text transcription result to the Web Client and updates the UI. If the 'final' flag is set to true, the UI will exit the listening mode and will automatically send the text as a message to the bot. If the flag is false the UI will only update the text but will remaining in listening mode.
 
 | Parameter | Description |
 | ---- | ----------- |
