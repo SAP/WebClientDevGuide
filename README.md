@@ -58,7 +58,7 @@ The Web Client Bridge API offers a way to extend or customize the functionality 
 
 The object has to be registered at object path `window.sapcai.webclientBridge`.
 
-More information about the exact recommended implementation pattern can be found in the next section 'Implementing the Web Client Bridge'.
+More information about the exact recommended implementation pattern can be found in the next section [Implementing the Web Client Bridge](#implementing-the-web-client-bridge).
 
 The interface methods are documented below.
 
