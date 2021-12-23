@@ -1,35 +1,35 @@
-# Developer Guide for the SAP Conversational AI WebClient 
+# Developer Guide for the SAP Conversational AI Web Client 
 
-The SAP Conversational AI WebClient (further just called WebClient) offers two main ways for developers to interact with it at runtime:
+The SAP Conversational AI Web Client (further just called Web Client) offers two main ways for developers to interact with it at runtime:
 
-- calling the WebClient API from your business logic
-- implementing the WebClient Bridge API in your web application
+- calling the Web Client API from your business logic
+- implementing the Web Client Bridge API in your web application
 
-The following diagram shows a high level picture of how the WebClient is integrated into a web application and illustrates the two interfaces (WebClient API and WebClient Bridge) and their place in the integration.
+The following diagram shows a high level picture of how the Web Client is integrated into a web application and illustrates the two interfaces (Web Client API and Web Client Bridge) and their place in the integration.
 
 ![WebClient](./images/webclient.png)
 
-## WebClient API
+## Web Client API
 
-The WebClient API exposes a public JavaScript API, which is available at runtime in your web application as soon as the WebClient is loaded. You can use it to interact with the WebClient programatically from within your web application business logic.
+The Web Client API exposes a public JavaScript API, which is available at runtime in your web application as soon as the Web Client is loaded. You can use it to interact with the Web Client programatically from within your web application business logic.
 
 The API is available at the JavaScript object path: `window.sap.cai.webclient` and has the following methods:
 
 ### open()
 
-Opens the WebClient
+Opens the Web Client
 
 ### close()
 
-Closes The WebClient
+Closes The Web Client
 
 ### toggle()
 
-Toggles show/hide of the WebClient. This can be attached to an own button in the application in order to toggle display of the WebClient.
+Toggles show/hide of the Web Client. This can be attached to an own button in the application in order to toggle display of the Web Client.
 
 ### setTheme(themeName)
 
-Sets the theme of the WebClient
+Sets the theme of the Web Client
 
 
 | Parameter | Description |
@@ -46,19 +46,19 @@ Sends the given message to the underlying bot
 
 ### onSTTResult(result)
 
-Sends a final or interim Speech-To-Text transcription result to the WebClient and updates the UI.If the 'final' flag is set to true, the UI will exit the listening mode and will automatically send the text as a message to the bot. If the flag is false the UI will only update the text but will remaining in listening mode.
+Sends a final or interim Speech-To-Text transcription result to the Web Client and updates the UI.If the 'final' flag is set to true, the UI will exit the listening mode and will automatically send the text as a message to the bot. If the flag is false the UI will only update the text but will remaining in listening mode.
 
 | Parameter | Description |
 | ---- | ----------- |
 | result | *object*<br>An object of the form <br> { <br>text: 'A string',<br> final: true or false <br>} |
 
-## WebClient Bridge API
+## Web Client Bridge API
 
-The WebClient Bridge API offers a way to extend or customize the functionality of the WebClient by implementing a defined interface whose methods are called by the WebClient at runtime.
+The Web Client Bridge API offers a way to extend or customize the functionality of the Web Client by implementing a defined interface whose methods are called by the Web Client at runtime.
 
 The object has to be registered at object path `window.sapcai.webclientBridge`.
 
-More information about the exact recommended implementation pattern can be found in the next section 'Implementing the WebClient Bridge'.
+More information about the exact recommended implementation pattern can be found in the next section 'Implementing the Web Client Bridge'.
 
 The interface methods are documented below.
 
@@ -116,14 +116,14 @@ The 'merge' flag in the return object behaves as follows: If set to true, the pa
 
 ### onMessage(payload)
 
-This function is called each time the WebClient receives response messages from the bot and hence allows your web application to react to incoming bot responses. You could, for example, parse message payloads and dynamically change the state of your web application.
+This function is called each time the Web Client receives response messages from the bot and hence allows your web application to react to incoming bot responses. You could, for example, parse message payloads and dynamically change the state of your web application.
 | Parameter | Description |
 | ---- | ----------- |
 | payload| *object*<br>A payload object of the form<br>{ messages: [array of messages] } |
 
 ### getClientInfo(defaults)
 
-This function will be called once when the WebClient is loaded and allows to provide a set of supported static user- or client-level attributes (e.g. language and timezone). These values will then be made available in the Bot Builder as object 'client_info' and can be accessed just like 'memory'.
+This function will be called once when the Web Client is loaded and allows to provide a set of supported static user- or client-level attributes (e.g. language and timezone). These values will then be made available in the Bot Builder as object 'client_info' and can be accessed just like 'memory'.
 
 | Parameter | Description |
 | ---- | ----------- |
@@ -142,9 +142,9 @@ The following properties are supported
 
 ## Speech-To-Text Integration
 
-The following WebClient Bridge API functions are related to integrating Speech-To-Text (STT) into the WebClient. These functions can be implemented to integrate any STT service into the WebClient. 
+The following Web Client Bridge API functions are related to integrating Speech-To-Text (STT) into the Web Client. These functions can be implemented to integrate any STT service into the Web Client. 
 
-The microphone button and its related UX controls will be enabled if the WebClient detects that STT is implemented in the bridge.
+The microphone button and its related UX controls will be enabled if the Web Client detects that STT is implemented in the bridge.
 
 API:
 
@@ -152,7 +152,7 @@ API:
 
 Returns an object with STT configuration settings.
 
-**This function has to be implemented and return an object in order for the WebClient to even enable the microphone button and assume that STT is implemented.**
+**This function has to be implemented and return an object in order for the Web Client to even enable the microphone button and assume that STT is implemented.**
 
 | Returns||
 | - | - |
@@ -161,7 +161,7 @@ Returns an object with STT configuration settings.
 The return object looks like this:
 ```
 {
-  // set to true if you want the WebClient to record audio 
+  // set to true if you want the Web Client to record audio 
   // out of the box using the browsers MediaRecorder. If
   // set to false, you need to implement the audio recording yourself
   useMediaRecorder: true|false, 
@@ -206,7 +206,7 @@ sttStartListening: async (params) => {
 
 This function is called to notify the bridge that listening should be stopped, however everything that was already or is still in the process of being transcribed should still be completed and delivered to the UI.
 
-For example, if `useMediaRecorder: true` was returned in `sttGetConfig`, the WebClient will call this function when the client side audio has reached a silence threshold, automatically ending the listening mode. However, the final audio shall still be sent to the STT service and the final transcription result will be delivered shortly after this function was called. Hence, depending on the STT service, this function should not abruptly close all service connections, but rather wait until a final result or close has been reached.
+For example, if `useMediaRecorder: true` was returned in `sttGetConfig`, the Web Client will call this function when the client side audio has reached a silence threshold, automatically ending the listening mode. However, the final audio shall still be sent to the STT service and the final transcription result will be delivered shortly after this function was called. Hence, depending on the STT service, this function should not abruptly close all service connections, but rather wait until a final result or close has been reached.
 
 Example implementation (assuming a WebSocket client is used as an interface to an STT cloud service):
 
@@ -223,7 +223,7 @@ sttStopListening: async () => {
 
 ### async sttAbort()
 
-This function is called by the WebClient if the ongoing listening session should be closed immediately and any results should also be immediately dismissed.
+This function is called by the Web Client if the ongoing listening session should be closed immediately and any results should also be immediately dismissed.
 
 Example implementation
 
@@ -238,7 +238,7 @@ sttAbort: async () => {
 
 ### async sttOnFinalAudioData([blob, metadata])
 
-This function is called if `useMediaRecorder: true` was returned by `sttGetConfig` and will contain the final audio blob. Final means that the WebClient has stopped the MediaRecorder after this blob, most likely due to an automatic silence detection.
+This function is called if `useMediaRecorder: true` was returned by `sttGetConfig` and will contain the final audio blob. Final means that the Web Client has stopped the MediaRecorder after this blob, most likely due to an automatic silence detection.
 
 | Parameter | Description |
 | ---- | ----------- |
@@ -280,16 +280,16 @@ sttOnInterimAudioData: async (params) => {
 ```
 
 
-## Implementing the WebClient Bridge
+## Implementing the Web Client Bridge
 
 There are two technical limitations with the `window.sapcai.webclientBridge` object to consider when implementing the bridge:
 
-1. The `window.sapcai.webclientBridge` object must be present in your web application _before_ the WebClient is loaded
-2. Any changes to that object (for example changing its implementation dynamically) are _not_ considered by the WebClient after the fact anymore
+1. The `window.sapcai.webclientBridge` object must be present in your web application _before_ the Web Client is loaded
+2. Any changes to that object (for example changing its implementation dynamically) are _not_ considered by the Web Client after the fact anymore
 
 
 ### Straight Forward Case
-This means that if you have a web app, where you can define the bridge implementation object before the WebClient is loaded and you don't have the requirement to change its implementation dynamically, you're good with the straight forward implementation approach.
+This means that if you have a web app, where you can define the bridge implementation object before the Web Client is loaded and you don't have the requirement to change its implementation dynamically, you're good with the straight forward implementation approach.
 
 Somewhere in your startup code, just define the object:
 
@@ -315,7 +315,7 @@ window.sapcai.webclientBridge = {
 
 In case your web app either
 
-- cannot define the full bridge implementation before the WebClient is loaded
+- cannot define the full bridge implementation before the Web Client is loaded
 - or needs to switch the implementation dynamically based on the state of your web app
 
 we recommend the following implementation pattern.
@@ -340,9 +340,9 @@ window.sapcai.webclientBridge = {
 }
 ```
 
-By fixing the `webclientBridge` object to this static implementation, your web app can always define it before the WebClient is loaded (which is required), but you stay flexible in changing the implementation. 
+By fixing the `webclientBridge` object to this static implementation, your web app can always define it before the Web Client is loaded (which is required), but you stay flexible in changing the implementation. 
 
-2. Later, in the initialization code of your pages or components which actually provide a WebClient Bridge implementation, just set the `window.sapcai.webclientBridgeImpl` object. This way you can dynamically switch the implementation depending on which page or component the user navigates to.
+2. Later, in the initialization code of your pages or components which actually provide a Web Client Bridge implementation, just set the `window.sapcai.webclientBridgeImpl` object. This way you can dynamically switch the implementation depending on which page or component the user navigates to.
 
 ```
 
