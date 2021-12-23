@@ -62,7 +62,12 @@ More information about the exact recommended implementation pattern can be found
 
 The interface methods are documented below.
 
-<b>Please note that the return type of each method can either be the documented type or a Promise resolving to that type, in case asynchronous processing is required. All Speech-To-Text related methods have to be declared with the 'async' keyword because they are inherently assumed to be asynchronous.</b>
+---
+**NOTE**
+
+Please note that the return type of each method can either be the documented type or a Promise resolving to that type, in case asynchronous processing is required. All Speech-To-Text related methods have to be declared with the `async` keyword because they are inherently assumed to be asynchronous.
+
+---
 
 ### getApplicationId()
 
