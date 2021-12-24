@@ -111,7 +111,7 @@ welcomeMessage|String|A welcome message displayed on first load
 
 ### getMemory()
 
-This function is called before a message is sent to the bot and allows to provide context information to the bot request. This object is then available as 'memory' in the SAP Conversational AI bot builder (for example, in handlebars [scripting syntax](https://help.sap.com/viewer/a4522a393d2b4643812b7caadfe90c18/latest/en-US/b4f08a9a66434327a405b6934880445c.html).
+This function is called before a message is sent to the bot and allows to provide context information to the bot request. This object is then available as 'memory' in the SAP Conversational AI bot builder (for example, in handlebars [scripting syntax](https://help.sap.com/viewer/a4522a393d2b4643812b7caadfe90c18/latest/en-US/b4f08a9a66434327a405b6934880445c.html)).
  
 | Returns||
 | - | - |
