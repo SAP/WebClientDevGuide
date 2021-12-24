@@ -117,7 +117,7 @@ This function is called before a message is sent to the bot and allows to provid
 | - | - |
 | *object* | The memory object of the form<br> {<br> memory: { myKey: 'myValue', ... },<br> merge: true or false<br>} |
 
-The 'merge' flag in the return object behaves as follows: If set to true, the payload is merged with the existing memory, overriding common keys, but keeping the ones absent from the payload. If set to `false` or `missing`, the memory is replaced entirely by your payload.
+The 'merge' flag in the return object behaves as follows: If set to `true`, the payload is merged with the existing memory, overriding common keys, but keeping the ones absent from the payload. If set to `false` or `missing`, the memory is replaced entirely by your payload.
 
 ### onMessage(payload)
 
