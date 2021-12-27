@@ -15,6 +15,13 @@ The Web Client API exposes a public JavaScript API, which is available at runtim
 
 The API is available at the JavaScript object path: `window.sap.cai.webclient` and has the following methods:
 
+- [open()](#open)
+- [close()](#close)
+- [toggle()](#toggle)
+- [setTheme(themeName)](#setthemethemename)
+- [sendMessage(message)](#sendmessagemessage)
+- [onSTTResult(result)](#onsttresultresult)
+
 ### open()
 
 Opens the Web Client.
@@ -60,7 +67,13 @@ The object has to be registered at object path `window.sapcai.webclientBridge`.
 
 More information about the exact recommended implementation pattern can be found in the next section [Implementing the Web Client Bridge](#implementing-the-web-client-bridge).
 
-The interface methods are documented below.
+The supported interface methods are:
+
+- [getApplicationId()](#getapplicationid)
+- [getChannelPreferences()](#getchannelpreferences)
+- [getMemory()](#getmemory)
+- [onMessage(payload)](#onmessagepayload)
+- [getClientInfo(defaults)](#getclientinfodefaults)
 
 ---
 **NOTE**
@@ -152,6 +165,13 @@ The following Web Client Bridge API functions are related to integrating Speech-
 The microphone button and its related UX controls will be enabled if the Web Client detects that STT is implemented in the bridge.
 
 API:
+
+- [async sttGetConfig()](#async-sttgetconfig)
+- [async sttStartListening([metadata])](#async-sttstartlisteningmetadata)
+- [async sttStopListening()](#async-sttstoplistening)
+- [async sttAbort()](#async-sttabort)
+- [async sttOnFinalAudioData([blob, metadata])](#async-sttonfinalaudiodatablob-metadata)
+- [async sttOnInterimAudioData([blob, metadata])](#async-sttoninterimaudiodatablob-metadata)
 
 ### async sttGetConfig()
 
