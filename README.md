@@ -5,7 +5,7 @@ The SAP Conversational AI Web Client (henceforth Web Client) offers two main way
 - call the Web Client API from your business logic
 - implement the Web Client Bridge API in your web application
 
-The following diagram shows a high level process of how the Web Client is integrated into a web application and illustrates the two interfaces (Web Client API and Web Client Bridge) and their place in the integration.
+The following diagram shows an overview of how the Web Client is integrated into a web application and illustrates the two interfaces (Web Client API and Web Client Bridge) and their place in the integration.
 
 ![WebClient](./images/webclient.png)
 
@@ -78,7 +78,7 @@ The supported interface methods are:
 ---
 **NOTE**
 
-Please note that the return type of each method can either be the documented type or a promise resolving to that type, in case asynchronous processing is required. All Speech-To-Text related methods have to be declared with the `async` keyword because they are inherently assumed to be asynchronous.
+Please note that the return type of each method can either be the documented type or a `Promise` resolving to that type, in case asynchronous processing is required. All Speech-To-Text related methods have to be declared with the `async` keyword because they are inherently assumed to be asynchronous.
 
 ---
 
@@ -162,7 +162,7 @@ The following properties are supported
 
 The following Web Client Bridge API functions are related to integrating Speech-To-Text (STT) into the Web Client. These functions can be implemented to integrate any STT service into the Web Client. 
 
-The microphone button and its related UX controls will be enabled if the Web Client detects the STT that is implemented in the bridge.
+The microphone button and its related UX controls will be enabled if the Web Client detects the implemented STT in the bridge.
 
 API:
 
