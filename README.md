@@ -184,7 +184,7 @@ Returns an object with STT configuration settings.
 | *object* | The STT config object |
 
 The return object looks like this:
-```
+```javascript
 {
   // set to true if you want the Web Client to record audio 
   // out of the box using the browsers MediaRecorder. If
@@ -203,7 +203,6 @@ The return object looks like this:
         encoding: <encoding> (e.g. 'opus'),
       }
   }
-
 ```
 
 ### async sttStartListening([metadata])
@@ -217,13 +216,12 @@ This function is called at the beginning of a new microphone interaction and sho
 
 Example implementation:
 
-```
+```javascript
 sttStartListening: async (params) => {
  const [metadata] = params
  const { language, audioMetadata } = metadata
  
  // initialize your STT service session, e.g. creating a WebSocket client and registering callbacks
-
 }
 ```
 
@@ -235,7 +233,7 @@ For example, if `useMediaRecorder: true` was returned in `sttGetConfig`, the Web
 
 Example implementation (assuming a WebSocket client is used as an interface to an STT cloud service):
 
-```
+```javascript
 sttStopListening: async () => {
     // close a WebSocket client after 5 seconds, assuming that this is enough time for the cloud to deliver a final result
     setTimeout(() => {
@@ -252,7 +250,7 @@ This function is called by the Web Client if the ongoing listening session shoul
 
 Example implementation
 
-```
+```javascript
 sttAbort: async () => {
     if (wsclient) {
       // close client immediately, don't wait for in process transcription results
@@ -272,7 +270,7 @@ This function is called if `useMediaRecorder: true` was returned by `sttGetConfi
 | metadata (in params array) | The metadata object, containing 'language' and 'audioMetadata' |
 
 Example implementation
-```
+```javascript
 sttOnFinalAudioData: async (params) => {
     if (wsclient) {
       const [blob, metadata] = params
@@ -294,7 +292,7 @@ This can be used to live transcribe the user's audio input, instead of waiting f
 | metadata (in params array) | The metadata object, containing 'language' and 'audioMetadata' |
 
 Example implementation
-```
+```javascript
 sttOnInterimAudioData: async (params) => {
     if (wsclient) {
       const [blob, metadata] = params
@@ -318,7 +316,7 @@ This means that if you have a web app, where you can define the bridge implement
 
 Somewhere in your startup code, just define the object:
 
-```
+```javascript
 // your startup code
 
 window.sapcai.webclientBridge = {
@@ -347,7 +345,7 @@ We recommend the following implementation pattern in case your web app either:
 
 1. As part of your startup or initialization code, add the `window.sapcai.webclientBridge` object, but only implement all methods as skeleton methods, delegating the call to an `Impl` object:
 
-```
+```javascript
 window.sapcai.webclientBridge = {
     getMemory: () => {
        if (window.sapcai.webclientBridgeImpl) {
@@ -369,8 +367,7 @@ By fixing the `webclientBridge` object to this static implementation, your web a
 
 2. Later, in the initialization code of your pages or components which actually provide a Web Client Bridge implementation, just set the `window.sapcai.webclientBridgeImpl` object. This way you can dynamically switch the implementation depending on which page or component the user navigates to.
 
-```
-
+```javascript
 // initialization code of a certain page or component of your web app
 
 window.sapcai.webclientBridgeImpl = {
