@@ -74,6 +74,7 @@ The supported interface methods are:
 - [getMemory()](#getmemory)
 - [onMessage(payload)](#onmessagepayload)
 - [getClientInfo(defaults)](#getclientinfodefaults)
+There are additional Speech-2-Text related interface methods covered [below](#speech-to-textintegration).
 
 ---
 **NOTE**
