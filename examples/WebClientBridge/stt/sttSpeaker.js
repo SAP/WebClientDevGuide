@@ -64,7 +64,7 @@ class PCM16AudioRecorder {
 
 let wsclient = null
 let audioRecorder = null
-window.sapcai.webclientBridge = {
+const sttSpeakerWebSockets = {
 
   sttGetConfig: async () => {
     return {
@@ -147,4 +147,8 @@ window.sapcai.webclientBridge = {
       wsclient = null
     }
   },
+}
+
+window.sapcai = {
+  webclientBridge: sttSpeakerWebSockets,
 }
