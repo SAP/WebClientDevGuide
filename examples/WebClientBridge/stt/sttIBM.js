@@ -5,7 +5,7 @@ const IBM_URL = 'api.eu-de.speech-to-text.watson.cloud.ibm.com/instances/<your i
 const access_token = 'previously obtained access token from ibm cloud' 
 
 let wsclient = null
-window.sapcai.webclientBridge = {
+const sttIBMWebsocket = {
 
   sttGetConfig: async () => {
     return {
@@ -84,4 +84,8 @@ window.sapcai.webclientBridge = {
       }))
     }
   },
+}
+
+window.sapcai = {
+  webclientBridge: sttIBMWebsocket,
 }
