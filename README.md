@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./images/header_web_client.png" alt="Header Logo" width="50%"/>
+</div>
+
 # Developer Guide for the SAP Conversational AI Web Client 
 
 The SAP Conversational AI Web Client (henceforth Web Client) offers two main ways for developers to interact with it at runtime. It allows you to:
