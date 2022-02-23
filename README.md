@@ -19,18 +19,18 @@ The Web Client API exposes a public JavaScript API, which is available at runtim
 
 The API is available at the JavaScript object path: `window.sap.cai.webclient` and has the following methods:
 
-- [open()](#open)
-- [close()](#close)
+- [show()](#show)
+- [hide()](#hide)
 - [toggle()](#toggle)
 - [setTheme(themeName)](#setthemethemename)
 - [sendMessage(message)](#sendmessagemessage)
 - [onSTTResult(result)](#onsttresultresult)
 
-### open()
+### show()
 
 Opens the Web Client.
 
-### close()
+### hide()
 
 Closes The Web Client.
 
