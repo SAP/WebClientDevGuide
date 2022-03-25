@@ -5,4 +5,4 @@ The different examples are:
 |-|-|
 |sttIBM.js|IBM Watson|
 |sttSpeechAPI.js|SpeechRegognition API included in some browsers|
-|sttSpeaker.js|Fraunhofer SPEAKER service|
+|sttSpeaker.js|[SPEAKER](https://www.speaker.fraunhofer.de/en/)|
