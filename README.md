@@ -4,7 +4,8 @@
 
 # Developer Guide for the SAP Conversational AI Web Client 
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-docs/WebClientDevGuide)](https://api.reuse.software/info/github.com/SAP-docs/WebClientDevGuide)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/WebClientDevGuide)](https://api.reuse.software/info/github.com/SAP/WebClientDevGuide)
+
 
 The SAP Conversational AI Web Client (henceforth Web Client) offers two main ways for developers to interact with it at runtime. It allows you to:
 
